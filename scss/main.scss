@@ -1,0 +1,37 @@
+@import './base/reset'; // reset
+@import './base/typography'; // typography
+@import './abstracts/variables'; // variables
+@import './abstracts//mediaQueries'; // mediaqueries
+
+*,
+*::after,
+*::before {
+  // theme transition
+  transition: var(--theme-transition);
+}
+
+body {
+  background-color: rgb(var(--clr-bg));
+  color: rgb(var(--clr-main-font));
+  padding-top: 4rem;
+
+  @include Media(lg) {
+    padding-top: unset;
+    padding-left: 4rem;
+  }
+}
+
+div#__next,
+main {
+  overflow: hidden;
+}
+
+.container {
+  padding: 1rem;
+
+  @include Media(md) {
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 3rem 0;
+  }
+}

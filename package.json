@@ -1,0 +1,26 @@
+{
+  "name": "next-js",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^6.1.2",
+    "axios": "^0.27.2",
+    "formik": "^2.2.9",
+    "framer-motion": "^6.3.3",
+    "next": "^12.1.5",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "eslint": "^8.13.0",
+    "eslint-config-next": "^12.1.5",
+    "sass": "^1.51.0"
+  }
+}

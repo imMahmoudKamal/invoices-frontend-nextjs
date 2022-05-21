@@ -1,0 +1,39 @@
+.status {
+  width: 5.5rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  background-color: rgb(var(--clr-draft) / 40%);
+  color: rgb(var(--clr-main-font));
+  font-size: 0.6rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--paid {
+    background-color: rgb(var(--clr-paid) / 10%);
+    color: rgb(var(--clr-paid));
+  }
+
+  &--pending {
+    background-color: rgb(var(--clr-pending) / 10%);
+    color: rgb(var(--clr-pending));
+  }
+
+  &::before {
+    content: '';
+    width: 0.3rem;
+    height: 0.3rem;
+    transform: translate(-3px, -1px);
+    border-radius: 50%;
+    background-color: rgb(var(--clr-main-font));
+  }
+
+  &--paid::before {
+    background-color: rgb(var(--clr-paid));
+  }
+
+  &--pending::before {
+    background-color: rgb(var(--clr-pending));
+  }
+}

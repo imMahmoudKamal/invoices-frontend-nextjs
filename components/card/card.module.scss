@@ -1,0 +1,126 @@
+@import '../../scss/abstracts/mediaQueries';
+
+.card {
+  --main-font-clr: rgb(var(--clr-main-font) / 90%);
+  --secondary-font-clr: rgb(var(--clr-main-font) / 75%);
+  background-color: rgb(var(--clr-card));
+  padding: 0.8rem;
+  box-shadow: 0 0.5rem 1rem rgb(var(--clr-shadow) / 10%), 0 0 0 1px rgb(var(--clr-accent) / 5%);
+  border-radius: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.4rem;
+    z-index: -1;
+    box-shadow: 0 0 0 1px rgb(var(--clr-accent));
+    opacity: 0;
+    transition: opacity 100ms ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  :is(&__id, &__date, &__price) {
+    grid-column: 1/2;
+    color: var(--main-font-clr);
+  }
+
+  &__id {
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+
+    &::before {
+      content: '#';
+      color: rgb(var(--clr-accent) / 80%);
+      letter-spacing: -1.5px;
+    }
+  }
+
+  &__date {
+    font-size: 0.6rem;
+    color: var(--secondary-font-clr);
+
+    &::before {
+      content: 'Due ';
+      color: var(--secondary-font-clr);
+    }
+  }
+
+  &__price {
+    font-size: 0.8rem;
+
+    &::before {
+      content: '£';
+      color: rgb(var(--clr-accent) / 80%);
+    }
+  }
+
+  &__name {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    justify-self: flex-end;
+    font-size: 0.6rem;
+    color: var(--secondary-font-clr);
+  }
+
+  & div[class*='status'] {
+    justify-self: flex-end;
+    grid-row: 2/4;
+    grid-column: 2/3;
+  }
+
+  @include Media(md) {
+    align-items: center;
+    grid-template-columns: 4rem 6rem 1fr 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+    min-width: 100%;
+
+    > * {
+      grid-row: 1;
+      margin: 0;
+    }
+
+    &__date {
+      grid-column: 2/3;
+    }
+
+    &__name {
+      grid-column: 3/4;
+      justify-self: flex-start;
+    }
+
+    &__price {
+      grid-column: 4/5;
+      justify-self: flex-end;
+    }
+
+    & div[class*='status'] {
+      grid-column: 5/6;
+      grid-row: 1;
+      position: relative;
+      margin-right: 1.5rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(1.4rem, -50%) rotate(-135deg);
+        display: inline-block;
+        width: 0.4rem;
+        height: 0.4rem;
+        border-left: 2px solid rgb(var(--clr-accent));
+        border-bottom: 2px solid rgb(var(--clr-accent));
+      }
+    }
+  }
+}

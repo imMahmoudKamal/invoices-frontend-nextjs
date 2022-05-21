@@ -1,0 +1,11 @@
+.select {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  height: 2.2rem;
+  border-radius: 0.3rem;
+  color: rgb(var(--clr-main-font) / 90%);
+  background-color: rgb(var(--clr-card));
+  box-shadow: inset 0 0 0 1px rgb(var(--clr-accent) / 20%);
+  width: 100%;
+}

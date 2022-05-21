@@ -1,0 +1,53 @@
+@import '../../scss/components/buttons';
+@import '../../scss/abstracts/mediaQueries';
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    background-color: rgb(var(--clr-card));
+    padding: 1.25rem;
+    margin: 0 2rem;
+    max-width: 25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__heading {
+    font-size: 1rem;
+  }
+
+  &__text {
+    font-size: 0.6rem;
+    line-height: 1.75;
+  }
+
+  &__cta {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    &__delete {
+      @extend .btn__danger;
+    }
+
+    &__cancel {
+      @extend .btn__secondary;
+    }
+  }
+
+  @include Media(s) {
+    &__container {
+      padding: 2rem 1.5rem;
+    }
+  }
+}

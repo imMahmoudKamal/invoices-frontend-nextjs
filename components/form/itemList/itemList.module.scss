@@ -1,0 +1,75 @@
+@import '../../../scss/abstracts/mediaQueries';
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1rem;
+
+    &__name {
+      grid-column: 10 span;
+    }
+
+    &__qty,
+    &__price,
+    &__total {
+      grid-column: 3 span;
+    }
+
+    &__delete {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1.25rem;
+      max-width: 1rem;
+      fill: rgb(var(--clr-main-font) / 80%);
+      transition: 150ms fill ease-in-out;
+
+      &:hover {
+        fill: rgb(236 87 87);
+      }
+    }
+  }
+
+  &__item + &__item {
+    margin-top: 1rem;
+  }
+
+  @include Media(s) {
+    &__item {
+      grid-template-columns: repeat(20, 1fr);
+      gap: 0;
+
+      &__name {
+        margin-right: 0.5rem;
+      }
+
+      &__qty,
+      &__price,
+      &__total,
+      &__delete {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+.addnew {
+  color: rgb(var(--clr-button-edit) / 80%);
+  background-color: rgb(var(--clr-form-btn-discard) / 20%);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.75rem;
+  border-radius: 10rem;
+
+  &::before {
+    content: '+ ';
+    font-size: 0.9rem;
+    line-height: 0;
+    position: relative;
+    top: 2px;
+  }
+}

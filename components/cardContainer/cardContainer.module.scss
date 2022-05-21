@@ -1,0 +1,7 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 5rem;
+  transition: transform 600ms ease 0s, opacity 400ms ease 0s, var(--theme-transition);
+}

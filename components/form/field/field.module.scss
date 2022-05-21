@@ -1,0 +1,48 @@
+.field {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 2.2rem;
+  color: rgb(var(--clr-main-font) / 90%);
+  background-color: rgb(var(--clr-card));
+  box-shadow: inset 0 0 0 1px rgb(var(--clr-accent) / 20%);
+  caret-color: rgb(var(--clr-main-font) / 90%);
+  transition: var(--theme-transition), box-shadow 100ms ease-in-out;
+
+  &[aria-invalid='true'] {
+    box-shadow: inset 0 0 0 1px rgb(var(--clr-danger) / 60%);
+  }
+
+  &[aria-invalid='true'] + label {
+    color: rgb(var(--clr-danger));
+  }
+
+  &[aria-invalid='true'] ~ span {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  // remove arrows
+  &[type='number'] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    -moz-appearance: textfield;
+  }
+
+  // remove calendar icon
+  &[type='date']::-webkit-calendar-picker-indicator {
+    background: none;
+  }
+
+  // disabled
+  &:disabled {
+    color: rgb(var(--clr-main-font) / 70%);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px rgb(var(--clr-accent) / 5%);
+  }
+}

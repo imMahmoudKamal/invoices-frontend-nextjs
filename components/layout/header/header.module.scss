@@ -1,0 +1,89 @@
+@import '../../../scss/abstracts/mediaQueries';
+
+.header {
+  background-color: rgb(var(--clr-dark));
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+
+  &__logo {
+    background-color: rgb(var(--clr-accent));
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0 1rem 1rem 0;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 50% 0 0;
+      border-top-left-radius: 1rem;
+      background-color: rgb(var(--clr-white) / 20%);
+    }
+
+    &__icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background-color: rgb(var(--clr-white));
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -0.25rem);
+        border-width: 1rem 0.5rem;
+        border-style: solid;
+        border-color: rgb(var(--clr-accent)) transparent transparent;
+      }
+    }
+  }
+
+  &__more {
+    display: flex;
+
+    &__theme,
+    &__user {
+      width: 4rem;
+      height: 4rem;
+      display: grid;
+      place-items: center;
+    }
+
+    &__theme {
+      border-right: 1px solid rgb(var(--clr-white) / 20%);
+    }
+
+    &__user div {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  @include Media(lg) {
+    height: 100%;
+    width: 4rem;
+    border-radius: 0 1rem 1rem 0;
+    flex-direction: column;
+
+    &__more {
+      flex-direction: column;
+    }
+
+    &__more__theme {
+      border-right: unset;
+      border-bottom: 1px solid rgb(var(--clr-white) / 20%);
+    }
+  }
+}

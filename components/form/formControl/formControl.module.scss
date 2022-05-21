@@ -1,0 +1,75 @@
+.control {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5rem;
+  position: relative;
+
+  &__label {
+    font-size: 0.6rem;
+    text-transform: capitalize;
+    color: rgb(var(--clr-label-font));
+    transition: var(--theme-transition), color 100ms ease-in-out;
+  }
+
+  &__error {
+    position: absolute;
+    bottom: -0.3rem;
+    left: 0;
+    transform: translateY(100%);
+    line-height: 1;
+    font-size: 0.5rem;
+    font-weight: 700;
+    color: rgb(var(--clr-danger));
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--theme-transition), opacity 100ms ease-in-out;
+  }
+}
+
+.select {
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &::before {
+    right: 2px;
+    bottom: 0;
+    transform: translateY(-0.6rem);
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(var(--clr-card));
+  }
+
+  &::after {
+    right: 0.8rem;
+    bottom: 0;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-bottom: 0.95rem;
+    border-bottom: 2px solid rgb(var(--clr-accent));
+    border-left: 2px solid rgb(var(--clr-accent));
+    transform: rotate(-45deg);
+  }
+}
+
+.date::after {
+  content: attr(data-date);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.8rem;
+  padding-right: 1.8rem;
+  position: absolute;
+  border-radius: 0.3rem;
+  box-shadow: inset 0 0 0 1px rgb(var(--clr-accent) / 20%);
+  bottom: 0;
+  left: 0;
+  height: 2.2rem;
+  width: 100%;
+  color: rgb(var(--clr-main-font) / 90%);
+  background: rgb(var(--clr-card)) url(/images/calendar.svg) calc(100% - 1rem) center / 0.8rem no-repeat;
+  pointer-events: none;
+}

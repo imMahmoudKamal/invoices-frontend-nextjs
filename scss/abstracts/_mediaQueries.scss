@@ -1,0 +1,29 @@
+@mixin Media($size) {
+  // 23 * 16 = 368
+  @if $size == xs {
+    @media (min-width: 23em) {
+      @content;
+    }
+  }
+
+  // 36 * 16 = 576
+  @if $size == s {
+    @media (min-width: 36em) {
+      @content;
+    }
+  }
+
+  // 48 * 16 = 768
+  @if $size == md {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+
+  // 62 * 16 = 992
+  @if $size == lg {
+    @media (min-width: 62em) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+%btn {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgb(var(--clr-white));
+  padding: 0.75rem;
+  border-radius: 10rem;
+  position: relative;
+  transition: var(--theme-transition), transform 150ms ease-in-out, filter 150ms ease-in-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px rgb(var(--clr-main-font) / 10%);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+  }
+}
+
+%btn:disabled {
+  filter: grayscale(0.6);
+}
+
+%btn:hover {
+  filter: brightness(1.2);
+  transform: scale(1.01);
+
+  &::before {
+    opacity: 1;
+  }
+}
+
+.btn__primary {
+  @extend %btn;
+  background-color: rgb(var(--clr-accent));
+}
+
+.btn__danger {
+  @extend %btn;
+  background-color: rgb(var(--clr-danger));
+}
+
+.btn__secondary {
+  @extend %btn;
+  color: rgb(var(--clr-button-edit));
+  background-color: rgb(var(--clr-table-top));
+}
