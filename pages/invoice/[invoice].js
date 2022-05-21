@@ -219,7 +219,7 @@ function InvoiceButtons({ className, setIsOpenModal, invoiceDetails, setInvoiceD
 
 export async function getServerSideProps({ query: { invoice } }) {
   try {
-    const response = await invoicesAPI.get(`http://localhost:5000/api/invoice/${invoice}`);
+    const response = await invoicesAPI.get(`invoice/${invoice}`);
 
     if (response) return { props: { invoice: response.data.invoice } };
   } catch (error) {
