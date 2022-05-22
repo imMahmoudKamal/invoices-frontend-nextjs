@@ -10,10 +10,15 @@
   transition: var(--theme-transition);
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: rgb(var(--clr-bg));
   color: rgb(var(--clr-main-font));
   padding-top: 4rem;
+  height: 100%;
 
   @include Media(lg) {
     padding-top: unset;
@@ -24,6 +29,11 @@ body {
 div#__next,
 main {
   overflow: hidden;
+}
+
+div#__next {
+  display: grid;
+  min-height: 100%;
 }
 
 .container {

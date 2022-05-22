@@ -1,0 +1,10 @@
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+
+  &__copy {
+    font-size: 0.6rem;
+    color: rgb(var(--clr-main-font) / 80%);
+    text-align: center;
+  }
+}
